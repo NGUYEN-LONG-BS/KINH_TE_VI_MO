@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự đoán Doanh thu Công ty XYZ</title>
+    <!-- Thêm Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        table {
+            margin: 20px 0;
+        }
+        .step {
+            background-color: #ecf0f1;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .highlight {
+            background-color: #f9ebba;
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        .result {
+            background-color: #eaf1f7;
+            border: 1px solid #3498db;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .result span {
+            font-weight: bold;
+            color: #2980b9;
+        }
+        .code {
+            font-family: "Courier New", Courier, monospace;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center my-4">📊 Ví dụ: Dự đoán Doanh thu năm tới của Công ty XYZ</h1>
+        
+        <h2>📝 Dữ liệu doanh thu 5 năm qua và tính toán tăng trưởng</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary">
+                <tr>
+                    <th>Năm</th>
+                    <th>Doanh thu (Tỷ đồng)</th>
+                    <th>Tăng trưởng (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2019</td>
+                    <td>100</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2020</td>
+                    <td>110</td>
+                    <td>10%</td>
+                </tr>
+                <tr>
+                    <td>2021</td>
+                    <td>95</td>
+                    <td>-13.64%</td>
+                </tr>
+                <tr>
+                    <td>2022</td>
+                    <td>120</td>
+                    <td>26.32%</td>
+                </tr>
+                <tr>
+                    <td>2023</td>
+                    <td>130</td>
+                    <td>8.33%</td>
+                </tr>
+                <tr>
+                    <td><strong>Trung bình</strong></td>
+                    <td>-</td>
+                    <td><strong>7.75%</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Độ lệch chuẩn</strong></td>
+                    <td>-</td>
+                    <td><strong>16.34%</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="step">
+            <h3>🔍 Bước 1: Tính tốc độ tăng trưởng hàng năm</h3>
+            <p>Ta tính mức tăng trưởng doanh thu mỗi năm bằng công thức:</p>
+            <div class="code">
+                Tăng trưởng = (DTₙ - DTₙ₋₁) / DTₙ₋₁
+            </div>
+            <p>Áp dụng cho từng năm:</p>
+            <ul>
+                <li><span class="highlight">2020</span>: (110 - 100) / 100 = 10%</li>
+                <li><span class="highlight">2021</span>: (95 - 110) / 110 = -13.6%</li>
+                <li><span class="highlight">2022</span>: (120 - 95) / 95 = 26.3%</li>
+                <li><span class="highlight">2023</span>: (130 - 120) / 120 = 8.3%</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>📊 Bước 2: Tính trung bình và độ lệch chuẩn của tốc độ tăng trưởng</h3>
+            <p><strong>Trung bình (μ):</strong></p>
+            <div class="code">
+                μ = (10 + (-13.6) + 26.3 + 8.3) / 4 = 7.75%
+            </div>
+            <p><strong>Độ lệch chuẩn (σ):</strong></p>
+            <div class="code">
+                σ = √[( (10 - 7.75)² + (-13.6 - 7.75)² + (26.3 - 7.75)² + (8.3 - 7.75)² ) / (4-1)]
+            </div>
+            <p>Sau khi tính toán, ta có σ ≈ 16.34%</p>
+        </div>
+
+        <div class="step">
+            <h3>📈 Bước 3: Dự đoán doanh thu năm 2024 bằng phân phối chuẩn</h3>
+            <p>Doanh thu dự đoán có thể được tính bằng công thức:</p>
+            <div class="code">
+                DT₍₂₀₂₄₎ = DT₍₂₀₂₃₎ × (1 + Tăng trưởng)
+            </div>
+            <h4>🔹 Dự đoán doanh thu với tăng trưởng trung bình</h4>
+            <p>Doanh thu năm 2023 là <span class="highlight">130 tỷ</span>, thì doanh thu trung bình năm 2024 là:</p>
+            <div class="code">
+                DT₍₂₀₂₄₎ = 130 × (1 + 0.0775) = 130 × 1.0775 = 140.08 tỷ
+            </div>
+            <h4>🔹 Xác suất doanh thu trên 150 tỷ</h4>
+            <p>Ta cần tính xác suất doanh thu vượt <span class="highlight">150 tỷ</span>:</p>
+            <div class="code">
+                Z = (150 - 140.08) / (130 × 0.1634) = 9.92 / 21.24 = 0.467
+            </div>
+            <p>Dựa vào bảng Z-score, P(Z ≤ 0.467) ≈ 0.680, nghĩa là <strong>68% khả năng doanh thu dưới 150 tỷ</strong>.</p>
+            <p>Vậy xác suất để doanh thu <strong>trên 150 tỷ</strong> là:</p>
+            <div class="code">
+                P(DT > 150) = 1 - 0.680 = 32%
+            </div>
+        </div>
+
+        <div class="result">
+            <h3>🎯 Kết luận thực tế</h3>
+            <ul>
+                <li>Doanh thu năm 2024 dự kiến khoảng <span class="highlight">140 tỷ</span> (với mức tăng trưởng trung bình 7.75%).</li>
+                <li>Có <span class="highlight">32%</span> khả năng doanh thu vượt <span class="highlight">150 tỷ</span>.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Thêm Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
